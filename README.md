@@ -11,7 +11,7 @@ Er zijn 3 varianten van het labo
 Voor de **base** en **lab** opstellingen vind je een labo in de `gns3` map en de respectievelijke startup configs in `startup-configs`.
 
 ## Opstelling
-![Opstelling](lab-02-01-layout.png)
+![Opstelling](lab-automation-orchestration-layout.png)
 
 Je kan alle startup configuraties vinden in de `startup-config` map. Een voorgeconfigureerd GNS3 labo kan je vinden in de `gns3` map.
 
