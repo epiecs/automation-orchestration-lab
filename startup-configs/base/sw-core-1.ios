@@ -1,0 +1,91 @@
+enable
+configure terminal
+
+hostname SW-CORE-1
+
+line vty 0 15
+logging synchronous
+exec-timeout 0
+line console 0
+logging synchronous
+exec-timeout 0
+exit
+no ip domain-lookup
+
+vlan 10
+name vlan_it
+vlan 20
+name vlan_corp
+vlan 90
+name vlan_mgmt
+vlan 99
+name vlan_native
+exit
+
+interface vlan 10
+ip address 10.0.10.251 255.255.255.0
+standby version 2
+standby 10 priority 150
+standby 10 preempt
+standby 10 ip 10.0.10.1
+no shut
+
+interface vlan 20
+ip address 10.0.20.251 255.255.255.0
+standby version 2
+standby 20 priority 150
+standby 20 preempt
+standby 20 ip 10.0.20.1
+no shut
+
+interface vlan 90
+ip address 10.0.90.251 255.255.255.0
+standby version 2
+standby 90 priority 150
+standby 90 preempt
+standby 90 ip 10.0.90.1
+no shut
+
+interface range g3/0-1
+channel-group 1 mode active
+
+interface po1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 10,20,90
+switchport trunk native vlan 99
+
+interface range g1/0-3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 10,20,90
+switchport trunk native vlan 99
+
+interface range g0/1-2
+no switchport
+
+interface g0/1
+ip address 172.16.0.2 255.255.255.252
+ip ospf network point-to-point
+no shut
+
+interface g0/2
+ip address 172.16.0.14 255.255.255.252
+ip ospf network point-to-point
+no shut
+
+ip routing
+
+router ospf 1
+router-id 10.0.0.21
+auto-cost reference-bandwidth 1000000
+passive-interface default
+no passive-interface GigabitEthernet 0/1
+no passive-interface GigabitEthernet 0/2
+network 10.0.0.0 0.0.255.255 area 0
+network 172.16.0.0 0.0.0.255 area 0
+
+end
+write memory

@@ -1,0 +1,41 @@
+enable
+configure terminal
+
+hostname SW-ACC-1
+
+line vty 0 15
+logging synchronous
+exec-timeout 0
+line console 0
+logging synchronous
+exec-timeout 0
+exit
+no ip domain-lookup
+
+vlan 10
+name vlan_it
+vlan 20
+name vlan_corp
+vlan 90
+name vlan_mgmt
+vlan 99
+name vlan_native
+exit
+
+interface vlan 90
+ip address 10.0.90.11 255.255.255.0
+no shut
+
+interface range g0/1-2
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport nonegotiate
+switchport trunk allowed vlan 10,20,90
+switchport trunk native vlan 99
+
+interface g0/0
+switchport mode access
+switchport access vlan 20
+
+end
+write memory

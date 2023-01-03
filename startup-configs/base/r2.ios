@@ -1,0 +1,60 @@
+enable
+configure terminal
+
+line vty 0 15
+logging synchronous
+exec-timeout 0
+line console 0
+logging synchronous
+exec-timeout 0
+exit
+no ip domain-lookup
+
+hostname R2
+
+ip routing
+
+ip route 0.0.0.0 0.0.0.0 gigabitEthernet 0/0 192.168.122.1
+
+interface loopback 0
+ip address 10.0.100.12 255.255.255.255
+
+interface g0/0
+ip address 192.168.122.252 255.255.255.0
+ip nat outside
+no shutdown
+
+interface g0/1
+ip address 172.16.0.13 255.255.255.252
+ip ospf network point-to-point
+no shutdown
+
+interface g0/2
+ip address 172.16.0.17 255.255.255.252
+ip ospf network point-to-point
+no shutdown
+
+interface g0/3
+ip address 172.16.0.10 255.255.255.252
+ip ospf network point-to-point
+no shutdown
+
+router ospf 1
+router-id 10.0.0.12
+auto-cost reference-bandwidth 1000000
+passive-interface default
+no passive-interface GigabitEthernet 0/1
+no passive-interface GigabitEthernet 0/2
+no passive-interface GigabitEthernet 0/3
+network 172.16.0.0 0.0.0.255 area 0
+default-information originate
+
+ip access-list standard LAN_ALLOW_PAT
+permit 10.0.0.0 0.0.255.255
+permit 172.16.0.0 0.0.0.255
+
+interface range g0/1-3
+ip nat inside
+ip nat inside source list LAN_ALLOW_PAT interface g0/0 overload
+
+do write memory

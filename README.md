@@ -2,9 +2,8 @@
 
 Dit labo bevat de basis opstelling voor de modules automation en orchestration.
 
-Er zijn 3 varianten van het labo
+Er zijn 2 varianten van het labo
 
-- De **clean** variant zonder enige config
 - De **base** variant met een basis, correcte config
 - De **lab** variant met een basis config met configuratie fouten
 
