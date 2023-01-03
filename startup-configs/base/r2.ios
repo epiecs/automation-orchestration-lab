@@ -16,9 +16,6 @@ ip routing
 
 ip route 0.0.0.0 0.0.0.0 gigabitEthernet 0/0 192.168.122.1
 
-interface loopback 0
-ip address 10.0.100.12 255.255.255.255
-
 interface g0/0
 ip address 192.168.122.252 255.255.255.0
 ip nat outside
@@ -48,6 +45,10 @@ no passive-interface GigabitEthernet 0/2
 no passive-interface GigabitEthernet 0/3
 network 172.16.0.0 0.0.0.255 area 0
 default-information originate
+
+interface loopback 0
+ip ospf 1 area 0
+ip address 10.0.100.12 255.255.255.255
 
 ip access-list standard LAN_ALLOW_PAT
 permit 10.0.0.0 0.0.255.255

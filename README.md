@@ -9,6 +9,21 @@ Er zijn 2 varianten van het labo
 
 Voor de **base** en **lab** opstellingen vind je een labo in de `gns3` map en de respectievelijke startup configs in `startup-configs`.
 
+## Management ip's
+
+```
+R1        10.0.100.11
+R2        10.0.100.12
+
+SW-CORE-4 10.0.90.251
+SW-CORE-4 10.0.90.252
+
+SW-ACC-1  10.0.90.11
+SW-ACC-2  10.0.90.12
+SW-ACC-3  10.0.90.13
+SW-ACC-4  10.0.90.14
+```
+
 ## Opstelling
 ![Opstelling](lab-automation-orchestration-layout.png)
 
