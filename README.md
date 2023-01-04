@@ -167,10 +167,37 @@ De interface die je toekent aan GNS3 dient van het type **E1000** te zijn.
 * 1 x L2 SW
 * 2 x IOSv
 * 6 x IOSvL2
-* 3 x VPCS
+* 3 x Debian machines
 * 1 x Ubuntu machine
   * De Ubuntu machine is verbonden via een cloud node. Zodoende kan je je eigen virtuele machine gebruiken binnen GNS3
+
+> VPCS werken niet omdat deze allemaal hetzelfde mac adres hebben.
 
 ## Verificatie
 
 Als de basis opstelling correct uitgevoerd is kan de ubuntu machine het management ip van elk toestel pingen.
+
+## Configuratie fouten in lab
+
+- R1
+  - g0/0 is geen passive interface
+- R2
+  - g0/0 shutdown
+  - hostname Router
+- SW-CORE-01
+  - g1/1 native vlan mismatch
+  - g1/2 native vlan mismatch
+  - geen console logging
+- SW-CORE-02
+  - g2/2 trunk laat enkel vlan 10 toe
+  - g2/3 trunk laat enkel vlan 10 toe
+- SW-ACC-1
+  - hostname Switch
+- SW-ACC-2
+  - g0/2 shutdown
+- SW-ACC-3
+  - vlan 10 noemt CORP
+- SW-ACC-4
+  - stp root bridge voor alle vlans (prio 8192)
+  
+
