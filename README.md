@@ -15,8 +15,8 @@ Voor de **base** en **lab** opstellingen vind je een labo in de `gns3` map en de
 R1        10.0.100.11
 R2        10.0.100.12
 
-SW-CORE-4 10.0.90.251
-SW-CORE-4 10.0.90.252
+SW-CORE-1 10.0.90.251
+SW-CORE-2 10.0.90.252
 
 SW-ACC-1  10.0.90.11
 SW-ACC-2  10.0.90.12
