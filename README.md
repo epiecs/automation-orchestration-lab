@@ -186,7 +186,6 @@ Als de basis opstelling correct uitgevoerd is kan de ubuntu machine het manageme
   - hostname Router
 - SW-CORE-01
   - g1/1 native vlan mismatch
-  - g1/2 native vlan mismatch
   - geen console logging
 - SW-CORE-02
   - g2/2 trunk laat enkel vlan 10 toe

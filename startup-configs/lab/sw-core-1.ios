@@ -87,7 +87,7 @@ no passive-interface GigabitEthernet 0/2
 network 10.0.0.0 0.0.255.255 area 0
 network 172.16.0.0 0.0.0.255 area 0
 
-interface range g1/2-3
+interface g1/1
 switchport trunk native vlan 10
 no logging console
 
