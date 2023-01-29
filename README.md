@@ -24,6 +24,12 @@ SW-ACC-3  10.0.90.13
 SW-ACC-4  10.0.90.14
 ```
 
+## Logins en wachtwoorden
+
+Voor alle netwerk toestellen is de login `admin` met wachtwoord `Appel.Sap1`. Het Privileged exec (enable) wachtwoord is `Acti.Vate`.
+
+De Debian machines hebben als login `debian` met wachtwoord `debian`
+
 ## Opstelling
 ![Opstelling](assets/lab-automation-orchestration-layout.png)
 
