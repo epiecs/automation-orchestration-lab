@@ -13,7 +13,7 @@ exit
 no ip domain-lookup
 
 vlan 10
-name CORP
+name vlan_it
 vlan 20
 name vlan_corp
 vlan 90
@@ -38,6 +38,12 @@ switchport trunk native vlan 99
 interface g0/0
 switchport mode access
 switchport access vlan 10
+
+! Errors
+
+vlan 10
+name CORP
+exit
 
 end
 write memory

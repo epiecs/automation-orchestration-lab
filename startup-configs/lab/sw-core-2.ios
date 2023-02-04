@@ -87,6 +87,8 @@ no passive-interface GigabitEthernet 0/2
 network 10.0.0.0 0.0.255.255 area 0
 network 172.16.0.0 0.0.0.255 area 0
 
+! Errors
+
 interface range g2/2-3
 switchport trunk allowed vlan 10
 

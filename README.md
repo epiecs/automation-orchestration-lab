@@ -7,7 +7,7 @@ Er zijn 2 varianten van het labo
 - De **base** variant met een basis, correcte config
 - De **lab** variant met een basis config met configuratie fouten
 
-Voor de **base** en **lab** opstellingen vind je een labo in de `gns3` map en de respectievelijke startup configs in `startup-configs`.
+Voor de **base** en **lab** opstellingen vind je een labo in de `gns3` map en de respectievelijke startup configs in `startup-configs`. Elk labo is ook voorzien van snapshots.
 
 ## Management ip's
 
@@ -199,7 +199,6 @@ Als de basis opstelling correct uitgevoerd is kan de ubuntu machine het manageme
   - hostname Router
 - SW-CORE-01
   - g1/1 native vlan mismatch
-  - geen console logging
 - SW-CORE-02
   - g2/2 trunk laat enkel vlan 10 toe
   - g2/3 trunk laat enkel vlan 10 toe

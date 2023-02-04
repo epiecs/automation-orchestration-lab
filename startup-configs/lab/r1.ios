@@ -58,6 +58,8 @@ interface range g0/1-3
 ip nat inside
 ip nat inside source list LAN_ALLOW_PAT interface g0/0 overload
 
+! Errors
+
 router ospf 1
 no passive-interface gigabitEthernet 0/0
 

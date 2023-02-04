@@ -39,6 +39,8 @@ interface g0/0
 switchport mode access
 switchport access vlan 10
 
+! Errors
+
 interface g0/2
 shutdown
 

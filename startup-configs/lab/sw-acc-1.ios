@@ -39,5 +39,10 @@ interface g0/0
 switchport mode access
 switchport access vlan 20
 
+
+! Errors
+
+hostname Switch
+
 end
 write memory
