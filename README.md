@@ -35,6 +35,13 @@ De Debian machines hebben als login `debian` met wachtwoord `debian`
 
 Je kan alle startup configuraties vinden in de `startup-config` map. Een voorgeconfigureerd GNS3 labo kan je vinden in de `gns3` map.
 
+## Scripts
+
+Je kan alle gebruikte automation en orchestration scripts vinden op github:
+
+- https://github.com/epiecs/automation-scripts
+- https://github.com/epiecs/orchestration-scripts
+
 ## Ubuntu VM
 
 > **LET OP:** In het lab dat je downloadt is er een VPCS gebruikt waar de Ubuntu VM dient geplaatst te worden. Naargelang voor welke optie je kiest dien je dit nog aan te passen!
