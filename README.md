@@ -192,7 +192,7 @@ Als de basis opstelling correct uitgevoerd is kan de ubuntu machine het manageme
 
 ## Configuratie fouten in lab
 
-> **Let op:** De native vlan mismatch tussen `SW-CORE-01` en `SW-ACC-02` brengt een enorme cpu belasting met zich mee. Dit kan na een tijdje jouw lab doen crashen indien je niet genoeg resources hebt. Indien je dit aan de hand hebt schakel je best interface `G1/1` uit op `SW-CORE-01`
+> **Let op:** De native vlan mismatch tussen `SW-CORE-01` en `SW-ACC-02` brengt een enorme cpu belasting met zich mee. Dit kan na een tijdje jouw lab doen crashen indien je niet genoeg resources hebt. Zie daarom dat je pas de link terug inschakelt nadat je de native vlan mismatch hebt verholpen
 
 - R1
   - g0/0 is geen passive interface
@@ -207,7 +207,7 @@ Als de basis opstelling correct uitgevoerd is kan de ubuntu machine het manageme
 - SW-ACC-1
   - hostname Switch
 - SW-ACC-2
-  - g0/2 shutdown
+  - g0/1 shutdown
 - SW-ACC-3
   - vlan 10 noemt CORP
 - SW-ACC-4

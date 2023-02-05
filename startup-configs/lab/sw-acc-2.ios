@@ -41,7 +41,7 @@ switchport access vlan 10
 
 ! Errors
 
-interface g0/2
+interface g0/1
 shutdown
 
 end
