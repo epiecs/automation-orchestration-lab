@@ -28,6 +28,8 @@ no shut
 
 ip route 0.0.0.0 0.0.0.0 10.0.90.1
 
+spanning-tree mode rapid-pvst
+
 interface range g0/1-2
 switchport trunk encapsulation dot1q
 switchport mode trunk
@@ -42,7 +44,7 @@ switchport access vlan 20
 
 ! Errors
 
-hostname Switch
+hostname Switch1
 
 end
 write memory

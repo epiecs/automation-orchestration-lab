@@ -198,14 +198,14 @@ Als de basis opstelling correct uitgevoerd is kan de ubuntu machine het manageme
   - g0/0 is geen passive interface
 - R2
   - g0/0 shutdown
-  - hostname Router
+  - hostname Router1
 - SW-CORE-01
   - g1/1 native vlan mismatch
 - SW-CORE-02
   - g2/2 trunk laat enkel vlan 10 toe
   - g2/3 trunk laat enkel vlan 10 toe
 - SW-ACC-1
-  - hostname Switch
+  - hostname Switch1
 - SW-ACC-2
   - g0/1 shutdown
 - SW-ACC-3

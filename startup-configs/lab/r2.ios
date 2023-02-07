@@ -60,7 +60,7 @@ ip nat inside source list LAN_ALLOW_PAT interface g0/0 overload
 
 ! Errors
 
-hostname Router
+hostname Router1
 interface g0/0
 shutdown
 

@@ -46,6 +46,8 @@ standby 90 preempt
 standby 90 ip 10.0.90.1
 no shut
 
+spanning-tree mode rapid-pvst
+
 interface range g3/0-1
 channel-group 1 mode active
 
