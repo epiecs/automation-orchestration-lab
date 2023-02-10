@@ -4,10 +4,10 @@ Dit labo bevat de basis opstelling voor de modules automation en orchestration.
 
 Er zijn 2 varianten van het labo
 
-- De **base** variant met een basis, correcte config
-- De **lab** variant met een basis config met configuratie fouten
+- De **correct werkende** variant met een basis, correcte config
+- De **labo** variant met een basis config met configuratie fouten
 
-Voor de **base** en **lab** opstellingen vind je een labo in de `gns3` map en de respectievelijke startup configs in `startup-configs`. Elk labo is ook voorzien van snapshots.
+Het labo kan je in de `gns3` map vinden. Voor beide versies is er in het labo een snapshot voorzien. De respectievelijke startup configs kan je in de `startup-configs` map vinden.
 
 ## Management ip's
 
@@ -28,7 +28,7 @@ SW-ACC-4  10.0.90.14
 
 Voor alle netwerk toestellen is de login `admin` met wachtwoord `Appel.Sap1`. Het Privileged exec (enable) wachtwoord is `Acti.Vate`.
 
-De Debian machines hebben als login `debian` met wachtwoord `debian`
+De 4 pc's zijn allemaal van het type `VPCS`. Het is aan te raden om een Debian of Ubuntu machine te koppelen in de plaats van deze machines. Er werd geopteerd voor VPCS omwille van de lage resources alsook dat je zelf kan kiezen welk OS je voor management wenst te gebruiken.
 
 ## Opstelling
 ![Opstelling](assets/lab-automation-orchestration-layout.png)
@@ -44,7 +44,7 @@ Je kan alle gebruikte automation en orchestration scripts vinden op github:
 
 ## Ubuntu VM
 
-> **LET OP:** In het lab dat je downloadt is er een VPCS gebruikt waar de Ubuntu VM dient geplaatst te worden. Naargelang voor welke optie je kiest dien je dit nog aan te passen!
+> **LET OP:** In het lab dat je downloadt is er een VPCS gebruikt waar de Ubuntu/Debian VM dient geplaatst te worden. Naargelang voor welke optie je kiest dien je dit nog aan te passen!
 
 Voor de Ubuntu VM zijn er verschillende mogelijkheden. Je kan de ingebouwde Ubuntu vm gebruiken van GNS3. Een andere mogelijkheid is om een bridge interface toe te voegen aan jouw GNS3 server zodat je rechtstreeks je netwerk kan benaderen met een VM.
 
