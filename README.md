@@ -18,6 +18,10 @@ Voor de gebruikte images heb je een geldige Cisco CML licentie nodig. De volgend
 
 Er is specifiek voor een oudere switch variant gekozen. Deze heeft veel minder resources nodig en heeft ook minder last van de STP bug die voor issues zorgt in de 2020 versie.
 
+## High CPU issues
+
+Op sommige virtualisatie platformen is er sprake van een hoog CPU gebruik. Dit kan opgelost worden door de `-no-kvm` optie te plaatsen in de settings van een switch of router. Rechterklik op een apparaat, navigeer naar het tabblad `advanced` en vul dit in in de options.
+
 ## Management ip's
 
 ```
