@@ -141,7 +141,7 @@ Pas deze nu aan en selecteer `show special ethernet interfaces` en kies dan onze
 
 Onder het tabblad `Misc.` Kan je indien gewenst de naam en het icoon aanpassen. Dit is puur esthetisch. In mijn geval kies ik voor `Bridge-{0}` en `:/symbols/affinity/circle/blue/laptop.svg`:
 
-![Bridge settings](assets/bridge-interface.png)
+![Bridge settings](assets/bridge-settings.png)
 
 ### De Ubuntu VM verbinden
 
