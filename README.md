@@ -7,16 +7,14 @@ Er zijn 2 varianten van het labo
 - De **correct werkende** variant met een basis, correcte config
 - De **labo** variant met een basis config met configuratie fouten
 
-Het labo kan je in de `gns3` map vinden. Voor beide versies is er in het labo een snapshot voorzien. De respectievelijke startup configs kan je in de `startup-configs` map vinden.
+Het labo kan je in de `gns3` map vinden. De respectievelijke startup configs kan je in de `startup-configs` map vinden. **Het labo zelf is zonder configuratie, je moet de configuraties dus zelf nog inladen**
 
 ## Gebruikte images
 
 Voor de gebruikte images heb je een geldige Cisco CML licentie nodig. De volgende images zijn gebruikt. Als je op Google zoekt voor deze images kan je de link naar CML vinden. Mogelijks heb je een oudere release nodig voor deze images. Controleer zeker de checksums.
 
 - Routers: `vios-adventerprisek9-m.spa.159-3.m2.qcow2`
-- Switches: `vios_l2-adventerprisek9-m.ssa.high_iron_20180619.qcow2`
-
-Er is specifiek voor een oudere switch variant gekozen. Deze heeft veel minder resources nodig en heeft ook minder last van de STP bug die voor issues zorgt in de 2020 versie.
+- Switches: `vios_l2-adventerprisek9-m.ssa.high_iron_20200929.qcow2`
 
 ## High CPU issues
 
