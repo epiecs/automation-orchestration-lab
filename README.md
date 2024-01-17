@@ -53,11 +53,32 @@ Je kan alle gebruikte automation en orchestration scripts vinden op github:
 - https://github.com/epiecs/automation-scripts
 - https://github.com/epiecs/orchestration-scripts
 
-## Ubuntu VM
+## Automation VM
 
 > **LET OP:** In het lab dat je downloadt is er een VPCS gebruikt waar de Ubuntu/Debian VM dient geplaatst te worden. Naargelang voor welke optie je kiest dien je dit nog aan te passen!
 
-Voor de Ubuntu VM zijn er verschillende mogelijkheden. Je kan de ingebouwde Ubuntu vm gebruiken van GNS3. Een andere mogelijkheid is om een bridge interface toe te voegen aan jouw GNS3 server zodat je rechtstreeks je netwerk kan benaderen met een VM.
+Voor de Ubuntu VM zijn er verschillende mogelijkheden. 
+
+1. Je kan de ingebouwde Ubuntu vm gebruiken van GNS3. 
+2. Een andere mogelijkheid is om een bridge interface toe te voegen aan jouw GNS3 server zodat je rechtstreeks je netwerk kan benaderen met een aparte VM.
+
+## Gebruik maken van een aparte automation VM
+
+De meest optimale opstelling (naar mijn mening) is om gebruik te maken van een aparte virtuele machine met daar ineen Ubuntu/Debian host.
+
+Om zo een opstelling te realiseren moet je een paar configuratie wijzigingen doorvoeren:
+
+1. Een extra netwerk kaart toevoegen aan de GNS3 vm en deze als  bridge configureren
+2. Deze bridge interface in GNS3 toevoegen als cloud node
+3. Een aparte automation VM opzetten met Debian/Ubuntu
+4. De automation VM voorzien van een 2de netwerk kaart met statische routes naar het lab
+5. Zowel de automation VM als GNS3 correct koppelen
+
+> **Let op:** In alle voorbeelden maak ik gebruik van verschillende netwerken. Dit kan een andere opzet zijn voor jou. Hou rekening met jouw eigen netwerken en pas aan waar nodig!
+
+Uiteindelijk verwezenlijken we de volgende opstelling:
+
+![Bridge settings](assets/vscode-setup.png)
 
 ### Bridge interface
 
@@ -96,13 +117,13 @@ ip link show
 
 In mijn geval is de naam van de 2de netwerkkaart **eth1**. Noteer dit. Dit is mogelijks anders voor jou.
 
-Voeg de volgende configuratie toe aan het bestand `/etc/netplan/100-gns3-bridge.yaml`. Dit bestand bestaat standaar niet. Je kan dit bestand aanmaken:
+Voeg de volgende configuratie toe aan het bestand `/etc/netplan/100-gns3-bridge.yaml`. Dit bestand bestaat standaard niet. Je kan dit bestand aanmaken:
 
 ```bash
 sudo nano /etc/netplan/100-gns3-bridge.yaml
 ```
 
-**Pas `eth1` aan naar de naam van jouw netwerkkaart!**
+> **Let op:** Pas `eth1` aan naar de naam van jouw netwerkkaart!
 
 ```yaml
 network:
@@ -143,9 +164,17 @@ Onder het tabblad `Misc.` Kan je indien gewenst de naam en het icoon aanpassen. 
 
 ### De Ubuntu VM verbinden
 
-Je kan nu de Ubuntu VPCS aanpassen naar jouw bridge. De beste manier is om jouw Ubuntu VM te voorzien van een extra netwerk kaart. Verbind deze met hetzelfde netwerk als de bridge interface en geef deze als statisch ip `10.0.20.10/24`. Als alles correct verlopen is kan je alle management ips bereiken.
+Je kan nu de Ubuntu VPCS aanpassen naar jouw bridge. 
 
-Een voorbeeld netplan configuratie vind je hieronder, **hou weer rekening met de naam van jouw netwerkkaart**:
+![Lab met bridge](assets/lab-with-bridge.png)
+
+De beste manier is nu om jouw Ubuntu VM te voorzien van een extra netwerk kaart. 
+
+Verbind deze met hetzelfde netwerk als het netwerk van de de bridge interface en geef deze als statisch ip `10.0.20.10/24`. Als alles correct verlopen is kan je alle management ips bereiken.
+
+Een voorbeeld netplan configuratie vind je hieronder, 
+
+> **Let op:** hou rekening met de naam van jouw netwerkkaart:
 
 ```bash
 sudo nano /etc/netplan/100-gns3-lab.yaml
@@ -175,6 +204,10 @@ Vergeet niet je settings te saven met `sudo netplan apply`.
 
 > Merk op dat we de routes hebben toegevoegd. Het is aan jou om zeker te zijn dat er geen conflicten zijn met jouw eigen labo.
 
+### Intern alles correct koppelen
+
+Controleer dat alle de automation vm en de GNS3 vm correct intern gekoppeld zijn. Als alles correct verlopen is kan je nu met VsCode via de remote ssh extensie verbinding maken met jouw automation vm, dewelke toegang heeft tot het lab.
+
 ### Bridge interface met ESXI
 
 Indien je gebruik maakt van esxi dien je enkele aanpassingen uit te voeren. Voer de volgende aanpassingen door op de port group die verbonden is met de extra GNS3 interface:
@@ -185,21 +218,18 @@ Indien je gebruik maakt van esxi dien je enkele aanpassingen uit te voeren. Voer
 
 De interface die je toekent aan GNS3 dient van het type **E1000** te zijn.
 
-## Devices
+## Devices gebruikt in het lab
 
 * 1 x Internet toegang
 * 1 x L2 SW
 * 2 x IOSv
 * 6 x IOSvL2
-* 3 x Debian machines
-* 1 x Ubuntu machine
-  * De Ubuntu machine is verbonden via een cloud node. Zodoende kan je je eigen virtuele machine gebruiken binnen GNS3
-
-> VPCS werken niet omdat deze allemaal hetzelfde mac adres hebben.
+* 4 x VPCS
+* 1 x Ubuntu machine in GNS3 of via de cloud node
 
 ## Verificatie
 
-Als de basis opstelling correct uitgevoerd is kan de ubuntu machine het management ip van elk toestel pingen.
+Als de basis opstelling correct uitgevoerd is kan de automation vm het management ip van elk toestel pingen.
 
 ## Configuratie fouten in lab
 
