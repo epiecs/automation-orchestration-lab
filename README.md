@@ -135,7 +135,7 @@ network:
       dhcp6: no
   bridges:
     gns3bridge:
-      dhcp4: yes
+      dhcp4: no
       interfaces:
         - eth1
 ```
